@@ -1,7 +1,6 @@
-const mongoose = require("mongoose")
-const asyncHandler = require("../utils/asyncHandler")
+import mongoose from "mongoose"
 
-const connecDB = asyncHandler(async() => {
+const connectDB = async() => {
     try {
 
         await mongoose.connect(`${process.env.MONGO_DB_URI}/${process.env.MONGO_DB_NAME}`)
@@ -10,4 +9,5 @@ const connecDB = asyncHandler(async() => {
     } catch (error) {
         console.log("connection to database failed!!!")
     }
-})
+}
+export {connectDB}

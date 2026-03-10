@@ -1,8 +1,11 @@
-import {Router} from "express"
-import { showPosts,createPosts } from "../controller/showPosts"
+import { Router } from "express";
+import { showPosts } from "../controller/showPosts.js";
+import { createPost } from "../controller/createPosts.js";
+import { upload } from "../middleware/multer.js";
 
-import {upload} from "../middleware/multer.js"
-const router = Router()
+const router = Router();
+router.get("/show-posts", showPosts);
+router.post("/create-post", upload.single("image"), createPost);
 
-router.route.get("/show-posts",showPosts)
-router.route.post("/create-post",upload.single("image"),createPosts)
+export default router;
+

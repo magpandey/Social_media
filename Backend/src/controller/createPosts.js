@@ -1,10 +1,9 @@
 import {Post} from "../models/post.model.js"
 import mongoose from "mongoose"
 import {uploadOnCloudinary} from "../utils/cloudinary.js"
-import {upload} from "../middleware/multer.js"
 import {ApiError} from "../utils/apiError.js"
 import {ApiResponse} from "../utils/apiResponse.js"
-import asyncHandler from "../utils/asyncHandler.js"
+import {asyncHandler} from "../utils/asyncHandler.js"
 const createPost = asyncHandler(async(req,res) => {
     const {description} = req.body
     const file = req.file
